@@ -1,0 +1,23 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "letter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nbnsireesha/Constructor-Hangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nbnsireesha/Constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/nbnsireesha/Constructor-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1",
+    "is-letter": "^1.1.1"
+  }
+}
