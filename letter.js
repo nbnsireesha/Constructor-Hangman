@@ -5,9 +5,11 @@ var isLetter = require('is-letter');
 var Word = require("./word.js");
 //no of chances the player have
 var limit = 13; 
-var newWord = new Word();
-function Letter(){
+var flag = 0;
 
+var wrongGuessArray = [];
+function Letter(){
+	var newWord = new Word();
 	var self = this;
 
 	this.getLetter = function(){
@@ -38,6 +40,7 @@ function Letter(){
 							newWord.wordArray[i] = answer.letter;
 							console.log(newWord.wordArray.join().replace( /,/g, "" ));
 							console.log("CORRECT!!!");
+							flag = 1;
 							newWord.remainingLetters--;
 							
 						}
@@ -49,7 +52,16 @@ function Letter(){
 							limit++;
 						}
 					}//end of for
+					if(flag == 0 && (wrongGuessArray.join().includes(answer.letter) == false)){
+						wrongGuessArray.push(answer.letter);
+						//console.log("INCORRECT!!!");
+						//console.log(wrongGuessArray.join().replace( /,/g, "" ));
+					}
+					if(flag == 0){
+						console.log("INCORRECT!!!");
+					}
 					limit--;
+					flag = 0;
 					if(limit == 1){
 						console.log("its your last chance of guessing");
 					}
@@ -68,6 +80,8 @@ function Letter(){
 			})
 		}
 		else{
+			var obj1 = new Letter();
+			obj1.getLetter();
 			return;
 		}
 	}
