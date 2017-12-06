@@ -1,6 +1,7 @@
-var remainingLetters = "";
-var randomWord = "";
+
 function Word(){
+	var remainingLetters = "";
+	var randomWord = "";
 	this.wordArray = [];
 	var words = ["dog","monkey","cat","cow","horse", "blistex","fight", "orange", "birthday", "dance", "song", "country"];
 	this.randomWordGen = function(){
