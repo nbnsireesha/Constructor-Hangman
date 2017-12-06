@@ -9,7 +9,6 @@ function Letter(){
 	var wrongGuessArray = [];
 	var limit = 13;
 	var flag = 0;
-	
 	var self = this;
  
 	this.getLetter = function(){
@@ -37,21 +36,33 @@ function Letter(){
 							newWord.wordArray[i] = answer.letter;
 							console.log(newWord.wordArray.join().replace( /,/g, "" ));
 							console.log("CORRECT!!!");
+							if(wrongGuessArray == ""){
+								console.log(" NO WRONG GUESSED LETTERS ");
+							}
+							else{
+								console.log("THE LETTERS THAT YOU GUESSED WRONG:"+" "+wrongGuessArray.join());
+							}
 							flag = 1;
 							newWord.remainingLetters--;
 							
 						}
+
 						else if(newWord.randomWord[i] == answer.letter && newWord.wordArray[i] != "_ "){
 							console.log("you choose one you have already choosen");
 							limit++;
 						}
+						else if(answer.letter == wrongGuessArray[i]){
+							console.log("you already guessed it and its wrong");
+							limit++;
+						}
 					}//end of for
-					if(flag == 0 && (wrongGuessArray.join().includes(answer.letter) == false)){
+					if(flag == 0 && (wrongGuessArray.join().includes(answer.letter) == false) && (newWord.wordArray.join().includes(answer.letter) == false) ){
 						wrongGuessArray.push(answer.letter);
 						//console.log(wrongGuessArray.join().replace( /,/g, "" ));
 					}
-					if(flag == 0){
+					if(flag == 0 && (wrongGuessArray.join().includes(answer.letter) == true) ){
 						console.log("INCORRECT!!!");
+						console.log("THE LETTERS THAT YOU GUESSED WRONG:"+" "+wrongGuessArray.join());
 					}
 					limit--;
 					flag = 0;
@@ -86,6 +97,7 @@ function Letter(){
 					obj1.getLetter();
 				}
 				else{
+					console.log("THANKS FOR PLAYING");
 					return;
 				}
 			});		

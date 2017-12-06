@@ -2,7 +2,7 @@ var remainingLetters = "";
 var randomWord = "";
 function Word(){
 	this.wordArray = [];
-	var words = ["dog","monkey","cat","cow","horse", "amazon","fight", "orange", "birthday", "anniversary"];
+	var words = ["dog","monkey","cat","cow","horse", "blistex","fight", "orange", "birthday", "dance", "song", "country"];
 	this.randomWordGen = function(){
 		this.randomWord = words[Math.floor(Math.random() * words.length)];
 		this.remainingLetters = this.randomWord.length;
